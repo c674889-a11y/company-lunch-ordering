@@ -2,6 +2,7 @@
 create table if not exists public.employees (
   id uuid primary key default gen_random_uuid(),
   employee_no text unique not null,
+  email text unique,
   name text not null,
   department text not null default '',
   role text not null default 'employee' check (role in ('employee','admin')),
@@ -37,4 +38,4 @@ create policy "prototype menus insert" on public.menus for insert with check (tr
 create policy "prototype orders read" on public.orders for select using (true);
 create policy "prototype orders insert" on public.orders for insert with check (true);
 create policy "prototype orders update" on public.orders for update using (true) with check (true);
-insert into public.employees(employee_no,name,department,role) values ('A001','王小明','業務部','employee'),('A002','陳小美','設計部','employee'),('admin','系統管理員','管理部','admin') on conflict (employee_no) do nothing;
+insert into public.employees(employee_no,name,department,role) values ('A001','王小明','業務部','employee'),('A002','陳小美','設計部','employee') on conflict (employee_no) do nothing;
