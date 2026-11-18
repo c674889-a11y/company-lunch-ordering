@@ -1,6 +1,6 @@
 /* Set these values after creating a Supabase project. Never use a service_role key here. */
-const SUPABASE_URL = '';
-const SUPABASE_ANON_KEY = '';
+const SUPABASE_URL = 'https://oxbqepqorhmzkxjudsql.supabase.co';
+const SUPABASE_ANON_KEY = 'sb_publishable_YH47DAgAOFjIFvDkhTFOyQ_OGHFPRMN';
 const hasSupabase = Boolean(SUPABASE_URL && SUPABASE_ANON_KEY && window.supabase);
 const client = hasSupabase ? window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY) : null;
 
