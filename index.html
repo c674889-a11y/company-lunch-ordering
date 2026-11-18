@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#176b5d" />
+  <title>公司午餐訂購系統</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="toast" class="toast" role="status"></div>
+  <header class="topbar">
+    <div class="brand"><span class="brand-mark">餐</span><span>午餐小管家</span></div>
+    <div class="topbar-right"><span id="connectionBadge" class="badge badge-muted">Demo 模式</span><button id="logoutBtn" class="text-button hidden">登出</button></div>
+  </header>
+
+  <main class="container">
+    <section id="loginView" class="login-card card">
+      <div class="eyebrow">COMPANY LUNCH</div>
+      <h1>今天午餐吃什麼？</h1>
+      <p class="muted">輸入員工工號即可開始訂餐。</p>
+      <form id="loginForm" class="stack-form">
+        <label>員工工號<input id="employeeNo" required placeholder="例如：A001" autocomplete="username" /></label>
+        <button class="primary-button" type="submit">進入訂餐系統</button>
+      </form>
+      <p class="hint">展示用帳號：A001（王小明）、admin（管理員）</p>
+    </section>
+
+    <section id="appView" class="hidden">
+      <div class="welcome-row"><div><div class="eyebrow">TODAY'S MENU</div><h1 id="pageTitle">午餐訂購</h1><p id="welcomeText" class="muted"></p></div><div id="deadlineBox" class="deadline-box"></div></div>
+      <nav class="tabs" aria-label="功能分頁"><button class="tab active" data-tab="order">我要訂餐</button><button class="tab" data-tab="history">我的訂單</button><button id="adminTab" class="tab hidden" data-tab="admin">管理後台</button></nav>
+      <div id="orderPanel" class="panel"></div>
+      <div id="historyPanel" class="panel hidden"></div>
+      <div id="adminPanel" class="panel hidden"></div>
+    </section>
+  </main>
+
+  <footer><span>午餐小管家</span><span>Supabase powered</span></footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
